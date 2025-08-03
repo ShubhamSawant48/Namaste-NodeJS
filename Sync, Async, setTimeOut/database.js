@@ -1,10 +1,12 @@
+require('dotenv').config({ path: '../.env' });
+
 const { MongoClient } = require("mongodb");
 // or as an es module:
 // import { MongoClient } from 'mongodb'
 
 // Connection URL
 const url =
-  "mongodb+srv://sawantshubham736:8O1VpbdXzsVAXEGw@namastenodejs.pp4h1jb.mongodb.net/";
+  "mongodb+srv://sawantshubham736:"+process.env.DB_KEY+"@namastenodejs.pp4h1jb.mongodb.net/";
 const client = new MongoClient(url);
 
 // Database Name
@@ -35,8 +37,8 @@ async function main() {
   //     filteredDocs
   //   );
 
-  //   const findResult = await collection.find({}).toArray();
-  //   console.log("Found documents =>", findResult);
+    const findResult = await collection.find({}).toArray();
+    console.log("Found documents =>", findResult);
 
   // const updateResult = await collection.updateOne({ firstName: "shubham" }, { $set: { firstName: "godlShub",lastName:"op" } });
   // console.log('Updated documents =>', updateResult);
